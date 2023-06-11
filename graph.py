@@ -13,7 +13,7 @@ p = 0
 
 def initGraph(frame):
     global canvas
-    canvas = Canvas(frame,height=500, bg='white')
+    canvas = Canvas(frame,height=550, bg='white')
     canvas.pack(fill='x')
     bframe = Frame(frame,bg='black')
     bframe.pack( fill='x')
@@ -26,7 +26,7 @@ def initGraph(frame):
     Button(bframe, text=" > ", command=nextbutton).grid(row=0, column=3)
     Button(bframe, text="Update Graph", command=lambda: UpdateGraph(line.get(), station_entry.get())).grid(row=0, column=4)
 
-def getCard(line='4호선',station='정왕역'):
+def getCard(line='',station=''):
     global data
     key = '457176674862626937344c59444a50'
     url = 'http://openAPI.seoul.go.kr:8088/' +key +'/xml/CardSubwayTime/' + '1/5/' + '201901/' + quote_plus(line+'/'+station) + '/'
@@ -93,7 +93,7 @@ def UpdateGraph(line, station):
     getCard(line, station)
     drowGraph()
 
-root = Tk()
+'''root = Tk()
 root.title("Subway Data")
 initGraph(root)
-root.mainloop()
+root.mainloop()'''
